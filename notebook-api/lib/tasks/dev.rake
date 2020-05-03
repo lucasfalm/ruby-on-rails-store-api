@@ -11,4 +11,10 @@ namespace :dev do
     end
     print 'Contatos criados!'
   end
+  task setup: :environment do
+    print 'Cadastrando os tipos de contato'
+    kinds = %w(Amigo Comercial Conhecido)
+    kinds.each { |c| Kind.create!( description: c) }
+    print 'Contatos criados!'
+  end
 end
