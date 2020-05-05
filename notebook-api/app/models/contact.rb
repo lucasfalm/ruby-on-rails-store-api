@@ -1,5 +1,6 @@
 class Contact < ApplicationRecord
     belongs_to :kind
+    has_many :phones
 
     def translate_birthdate
         I18n.l(self.birthdate) unless self.birthdate.blank?

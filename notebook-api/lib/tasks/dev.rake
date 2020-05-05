@@ -6,6 +6,7 @@ namespace :dev do
     kinds.each { |c| Kind.create!( description: c) }
     p 'Tipos criados!'
   end
+
   desc "Configura o ambiente de desenvolvimento"
   task setup: :environment do
     p 'Criando contatos...'
@@ -18,5 +19,17 @@ namespace :dev do
       )
     end
     p 'Contatos criados!'
+  end
+
+  task setup: :environment do
+    p 'Cadastrando os telefones'
+    Contact.all.each do |contact|
+      Random.rand(5).times do |i|
+        phone = Phone.create(number: Faker::PhoneNumber.cell_phone)
+        contact.phones << phone
+        contact.save!
+      end
+    end
+    p 'Telefones cadastrados!'
   end
 end
