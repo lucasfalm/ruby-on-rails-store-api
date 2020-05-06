@@ -7,6 +7,7 @@ class Contact < ApplicationRecord
        h = super(options)
        h[:birthdate] =  (I18n.l(self.birthdate) unless self.birthdate.blank?)
        h[:kind] = self.kind.description
+       h[:phones] = self.phones.map(&:number)
        h
     end
     #def translate_birthdate
