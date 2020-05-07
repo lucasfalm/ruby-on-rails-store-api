@@ -1,7 +1,7 @@
 class Contact < ApplicationRecord
     belongs_to :kind
     has_many :phones
-    accepts_nested_attributes_for :phones
+    accepts_nested_attributes_for :phones, allow_destroy: true
 
     # HTTParty.patch("http://localhost:3000/contacts/107", :body => { "contact": { "name": "Tey", "email": "lucas.feijo@1253.com", "kind_id": "2", "birthdate":"19/07/1997","phones_attributes": [{"number":'9999999'}] }})
     def as_json(options={})
