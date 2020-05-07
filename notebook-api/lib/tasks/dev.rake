@@ -1,4 +1,12 @@
 namespace :dev do
+  task setup: :environment do
+    p 'Deletando banco'
+    %x(rails db:drop db:create db:migrate)
+
+    kinds = %w(Amigo Comercial Conhecido)
+    kinds.each { |c| Kind.create!( description: c) }
+    p 'Tipos criados!'
+  end
 
   task setup: :environment do
     p 'Cadastrando os tipos de contato'
@@ -36,7 +44,7 @@ namespace :dev do
   task setup: :environment do
     p 'Cadastrando os endereços'
     Contact.all.each do |contact|
-      Address.create(street: 'Teste', city: 'Teste', contact: contact)
+      Address.create(street: Faker::Address.street_address, city: Faker::Address.city, contact: contact)
     end
     p 'Endereços cadastrados!'
   end

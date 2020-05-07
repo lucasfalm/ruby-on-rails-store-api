@@ -9,7 +9,7 @@ class Contact < ApplicationRecord
        h = super(options)
        h[:birthdate] =  (I18n.l(self.birthdate) unless self.birthdate.blank?)
        h[:kind] = self.kind.description
-       h[:phones] = self.phones
+       h[:phones] = self.phones.map(&:number)
        h[:street] = self.address.street
        h[:city] = self.address.city
        h
