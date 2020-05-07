@@ -32,4 +32,12 @@ namespace :dev do
     end
     p 'Telefones cadastrados!'
   end
+
+  task setup: :environment do
+    p 'Cadastrando os endereços'
+    Contact.all.each do |contact|
+      Address.create(street: 'Teste', city: 'Teste', contact: contact)
+    end
+    p 'Endereços cadastrados!'
+  end
 end

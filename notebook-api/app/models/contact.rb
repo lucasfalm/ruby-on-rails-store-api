@@ -1,7 +1,8 @@
 class Contact < ApplicationRecord
     belongs_to :kind
     has_many :phones
-    accepts_nested_attributes_for :phones, allow_destroy: true
+    has_one :address
+    accepts_nested_attributes_for :phones, :address, allow_destroy: true
 
     # HTTParty.patch("http://localhost:3000/contacts/107", :body => { "contact": { "name": "Tey", "email": "lucas.feijo@1253.com", "kind_id": "2", "birthdate":"19/07/1997","phones_attributes": [{"number":'9999999'}] }})
     def as_json(options={})
@@ -9,6 +10,8 @@ class Contact < ApplicationRecord
        h[:birthdate] =  (I18n.l(self.birthdate) unless self.birthdate.blank?)
        h[:kind] = self.kind.description
        h[:phones] = self.phones
+       h[:street] = self.address.street
+       h[:city] = self.address.city
        h
     end
     #def translate_birthdate
