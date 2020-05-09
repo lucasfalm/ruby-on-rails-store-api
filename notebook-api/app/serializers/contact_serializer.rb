@@ -9,6 +9,7 @@ class ContactSerializer < ActiveModel::Serializer
       author: 'Lucas F.'
     } 
   end
+  link(:self) { contact_url(self.object_id) }
 
   def attributes(*args)
     h = super(*args)
