@@ -1,8 +1,10 @@
 class ContactSerializer < ActiveModel::Serializer
   attributes :id, :name, :email
+
   belongs_to :kind do
     link(:related) { kind_url(object.kind.id) }
   end
+
   has_many :phones
   has_one :address
 
@@ -11,6 +13,7 @@ class ContactSerializer < ActiveModel::Serializer
       author: 'Lucas F.'
     } 
   end
+
   link(:self) { contact_url(object.id) }
 
   def attributes(*args)
