@@ -45,9 +45,15 @@ class ContactsController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
+=begin     
     def contact_params
       params.require(:contact).permit(:name, :email, :birthdate, :kind_id,
                                       phones_attributes: [:id, :number, :_destroy], 
                                       address_attributes: [:city, :street, :id],)
+    
+    end
+=end
+    def contact_params
+      ActiveModelSerializers::Deserialization.jsonapi_pase(params)
     end
 end
