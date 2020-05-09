@@ -15,6 +15,7 @@ class Contact < ApplicationRecord
        h[:city] = self.address.city
        h
     end
+
     #def translate_birthdate
     #    I18n.l(self.birthdate) unless self.birthdate.blank?
     #end
