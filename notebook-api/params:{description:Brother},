@@ -1,0 +1,10 @@
+HTTP/1.1 201 Created
+Location: http://localhost:3000/kinds/16
+Content-Type: application/vnd.api+json; charset=utf-8
+ETag: W/"9647cc95f393855890933c8f1acbf6ba"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: b2937b45-67ba-481c-b297-162f86f40525
+X-Runtime: 0.022118
+Vary: Origin
+Transfer-Encoding: chunked
+
