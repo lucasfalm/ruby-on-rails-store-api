@@ -54,6 +54,6 @@ class ContactsController < ApplicationController
     end
 =end
     def contact_params
-      ActiveModelSerializers::Deserialization.jsonapi_pase(params)
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end
