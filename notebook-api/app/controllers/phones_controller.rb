@@ -1,5 +1,11 @@
 class PhonesController < ApplicationController
+    TOKEN = 'secret'
+   
+    include ActionController::HttpAuthentication::Token::ControllerMethods	
+    
     before_action :set_contact, only: [:show, :update, :destroy, :create]
+    before_action :authenticate
+
     def show
         render json: @contact.phones
     end
@@ -31,6 +37,7 @@ class PhonesController < ApplicationController
     end
 
     private
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
        @contact = Contact.find(params[:contact_id])
@@ -38,5 +45,14 @@ class PhonesController < ApplicationController
 
     def phone_params
       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
+    end
+    
+    def authenticate
+	    authenticate_or_request_with_http_token do |token, options|
+	      ActiveSupport::SecurityUtils.secure_compare(
+		      ::Digest::SHA256.hexdigest(token),
+		      ::Digest::SHA256.hexdigest(TOKEN)
+        )
+      end
     end
 end
