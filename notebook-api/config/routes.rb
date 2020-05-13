@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
     resource :phones, only: [:show], path: '/phones'
 
-    resource :address, path: '/address'
+    resource :address, except: [:create], path: '/address'
   end
 end

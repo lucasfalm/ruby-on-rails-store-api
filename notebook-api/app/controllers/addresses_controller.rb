@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-    before_action :set_address, only: [:show, :update]
+    before_action :set_address, only: [:show, :update, :destroy]
     def show
         render json: @address
     end
@@ -9,6 +9,10 @@ class AddressesController < ApplicationController
         else
             render json: @address.errors, status: :unprocessable_entity
         end
+    end
+
+    def destroy
+        @address.destroy
     end
 
     private
