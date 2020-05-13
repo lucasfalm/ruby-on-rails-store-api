@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :contacts do
+    # nested routes
     resource :kind, only: [:show], path: 'relationships/kind'
 
     resource :phones, only: [:show], path: '/phones'
