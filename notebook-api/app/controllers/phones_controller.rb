@@ -20,8 +20,8 @@ class PhonesController < ApplicationController
     end
 
     def create
-        @phone = Phone.new(phone_params)
-        @contact.phones << @phone
+        phone = Phone.new(phone_params)
+        @contact.phones << phone
 
         if @contact.save
           render json: @contact.phones, status: :created, location: contact_phones_url(@contact)
