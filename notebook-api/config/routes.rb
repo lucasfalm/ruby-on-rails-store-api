@@ -7,6 +7,6 @@ Rails.application.routes.draw do
 
     resource :phones, only: [:show], path: '/phones'
 
-    resource :address, only: [:show], path: '/address'
+    resource :address, path: '/address'
   end
 end
