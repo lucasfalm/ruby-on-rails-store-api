@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :auths, only: [:create]
+
   resources :contacts do
     # nested routes
     resource :kind, only: [:show], path: 'relationships/kind'
