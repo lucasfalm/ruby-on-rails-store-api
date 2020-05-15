@@ -1,7 +1,7 @@
 class PhonesController < ApplicationController
-    include ActionController::HttpAuthentication::Token::ControllerMethods	
+    #include ActionController::HttpAuthentication::Token::ControllerMethods	
 
-    before_action :authenticate
+    before_action :authenticate_user!
     before_action :set_contact, only: [:show, :update, :destroy, :create]
 
     def show
