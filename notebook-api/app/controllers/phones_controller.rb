@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-    TOKEN = 'secret'
+    #TOKEN = 'secret'
    
     include ActionController::HttpAuthentication::Token::ControllerMethods	
     
@@ -49,10 +49,12 @@ class PhonesController < ApplicationController
     
     def authenticate
 	    authenticate_or_request_with_http_token do |token, options|
-	      ActiveSupport::SecurityUtils.secure_compare(
-		      ::Digest::SHA256.hexdigest(token),
-		      ::Digest::SHA256.hexdigest(TOKEN)
-        )
+	      #ActiveSupport::SecurityUtils.secure_compare(
+		    #  ::Digest::SHA256.hexdigest(token),
+		    #  ::Digest::SHA256.hexdigest(TOKEN)
+        #)
+        hmac_secret = 'secret'
+        JWT.decode token, hmac_secret, true, { algorithm: 'HS256' }
       end
     end
 end
