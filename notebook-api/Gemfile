@@ -13,7 +13,9 @@ gem 'sqlite3', '~> 1.3.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+# Authentications
 gem 'jwt'
+gem 'devise_token_auth'
 
 gem 'active_model_serializers', '~> 0.10.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,10 +1,8 @@
 class PhonesController < ApplicationController
-    #TOKEN = 'secret'
-   
     include ActionController::HttpAuthentication::Token::ControllerMethods	
-    
-    before_action :set_contact, only: [:show, :update, :destroy, :create]
+
     before_action :authenticate
+    before_action :set_contact, only: [:show, :update, :destroy, :create]
 
     def show
         render json: @contact.phones
