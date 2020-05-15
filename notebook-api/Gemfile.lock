@@ -161,6 +161,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   byebug
+  devise
   devise_token_auth
   faker
   httparty

@@ -16,6 +16,7 @@ gem 'puma', '~> 3.0'
 # Authentications
 gem 'jwt'
 gem 'devise_token_auth'
+gem 'devise'
 
 gem 'active_model_serializers', '~> 0.10.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
