@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :auths, only: [:create]
 
-  api_version(:module => "V1", :path => {:value => "v1"}) do
+  api_version(:module => "V1",:header => {:name => "Accept", :value => "application/json version=1" }) do
     resources :contacts do
       # nested routes
       resource :kind, only: [:show], path: 'relationships/kind'
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  api_version(:module => "V2", :path => {:value => "v2"}) do
+  api_version(:module => "V2", :header => {:name => "Accept", :value => "application/json version=2" })  do
     resources :contacts do
       # nested routes
       resource :kind, only: [:show], path: 'relationships/kind'
