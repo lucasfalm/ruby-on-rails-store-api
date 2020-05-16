@@ -6,7 +6,7 @@ module V2
     def index
       @contacts = Contact.all
 
-      render json: @contacts
+      paginate json: @contacts
     end
 
     # GET /contacts/1
