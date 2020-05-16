@@ -1,4 +1,5 @@
-class AddressesController < ApplicationController
+module V2
+  class AddressesController < ApplicationController
     before_action :set_contact, only: [:show, :update, :destroy, :create]
     def show
         render json: @contact.address
@@ -33,4 +34,5 @@ class AddressesController < ApplicationController
     def address_params
         ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
+  end
 end
