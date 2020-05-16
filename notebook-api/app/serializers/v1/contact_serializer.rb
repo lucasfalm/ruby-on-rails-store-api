@@ -20,7 +20,7 @@ module V1
       } 
     end
 
-    #link(:self) { v2_contact_url(object.id) }
+    link(:self) { v1_contact_url(object.id) }
 
     def attributes(*args)
       h = super(*args)
