@@ -42,7 +42,7 @@ module V2
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_contact
-        @contact = Contact.find(params[:id])
+        @contact = Contact.find(100)
       end
 
       def contact_params
