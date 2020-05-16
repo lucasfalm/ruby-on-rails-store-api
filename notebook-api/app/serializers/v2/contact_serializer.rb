@@ -1,6 +1,6 @@
 module V2
   class ContactSerializer < ActiveModel::Serializer
-    attributes :id, :name, :email, :created_at
+    attributes :id, :name, :email
 
     has_many :phones do
       link(:related) { v2_contact_phones_url(object.id) }

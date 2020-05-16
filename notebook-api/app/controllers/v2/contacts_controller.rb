@@ -11,7 +11,7 @@ module V2
 
     # GET /contacts/1
     def show
-      render json: @contact, include: [:kind, :phones, :address]
+      render json: @contact
     end
 
     # POST /contacts
@@ -42,7 +42,7 @@ module V2
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_contact
-        @contact = Contact.find(100)
+        @contact = Contact.find(params[:id])
       end
 
       def contact_params
