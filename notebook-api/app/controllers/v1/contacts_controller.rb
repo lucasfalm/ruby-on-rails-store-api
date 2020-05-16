@@ -12,7 +12,9 @@ module V1
 
     # GET /contacts/1
     def show
-      render json: @contact, include: [:kind, :phones, :address]
+      if stale?(etag: @contact)
+        render json: @contact
+      end
     end
 
     # POST /contacts
