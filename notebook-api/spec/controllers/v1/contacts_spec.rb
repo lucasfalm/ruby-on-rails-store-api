@@ -5,7 +5,7 @@ describe V1::ContactsController, :v1test, type: :controller do
         it 'request index and returns 200 OK' do
             request.accept = 'application/json'
             get :index
-            expect(response.status).to eql(200)
+            expect(response).to have_http_status(200)
         end
     end
 end
