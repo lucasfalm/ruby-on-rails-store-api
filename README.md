@@ -1,1 +1,1 @@
-# Studies, with Rails API!
+### Rails API project
