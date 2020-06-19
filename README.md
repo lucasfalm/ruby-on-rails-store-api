@@ -1,1 +1,1 @@
-### Ruby on Rails API Restfull project
+### Ruby on Rails API Restful project
